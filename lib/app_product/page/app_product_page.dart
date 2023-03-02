@@ -1,20 +1,28 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:jarnama/components/image_container.dart';
 
 import '../../components/cusstomTextfield.dart';
+import '../../services/date_time.dart';
+import '../../services/image_picer_service.dart';
 
+// ignore: must_be_immutable
 class AppProductPage extends StatelessWidget {
-  const AppProductPage({Key? key}) : super(key: key);
+  AppProductPage({Key? key}) : super(key: key);
+  final title = TextEditingController();
+  final desc = TextEditingController();
+  final date = TextEditingController();
+  final phone = TextEditingController();
+  final userName = TextEditingController();
+  final adress = TextEditingController();
+  final price = TextEditingController();
+  List<XFile> images = [];
 
   @override
   Widget build(BuildContext context) {
-    final _title = TextEditingController();
-    final _desc = TextEditingController();
-    final _date = TextEditingController();
-    final _phone = TextEditingController();
-    final _user_name = TextEditingController();
-    final _adress = TextEditingController();
-    final _price = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('AppProductPage'),
@@ -23,57 +31,51 @@ class AppProductPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           CustumTextField(
-            controller: _title,
+            controller: title,
             hinText: 'Title',
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _desc,
+            controller: desc,
             hinText: 'Description',
+            maxLines: 4,
+          ),
+          const SizedBox(height: 12),
+          ImageContainer(
+            images: images,
+            onPicked: (value) => images = value,
+            onDelete: (xfile) => images.remove(xfile),
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _date,
+            controller: date,
             hinText: 'Datetime',
+            focusNode: FocusNode(),
             onTap: () async {
-              showCupertinoModalPopup(
-                  context: context,
-                  builder: (BuildContext builder) {
-                    return Container(
-                      height:
-                          MediaQuery.of(context).copyWith().size.height * 0.25,
-                      color: Colors.white,
-                      child: CupertinoDatePicker(
-                        mode: CupertinoDatePickerMode.date,
-                        onDateTimeChanged: (value) {
-                          _date.text = value.toString();
-                        },
-                        initialDateTime: DateTime.now(),
-                        minimumYear: 2000,
-                        maximumYear: 3000,
-                      ),
-                    );
-                  });
+              await DateTimeServices.showDateTimePicer(
+                context,
+                (value) => date.text = DateFormat("d MMM, y").format(value),
+              );
             },
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _phone,
+            controller: phone,
             hinText: 'Phonenumber',
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _user_name,
+            controller: userName,
             hinText: 'User Name',
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _adress,
+            controller: adress,
             hinText: 'Addres',
           ),
           const SizedBox(height: 12),
           CustumTextField(
-            controller: _price,
+            controller: price,
             hinText: 'Price',
           ),
           const SizedBox(height: 12),
@@ -87,3 +89,5 @@ class AppProductPage extends StatelessWidget {
     );
   }
 }
+
+// ignore: must_be_immutable
