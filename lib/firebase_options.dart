@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCyRB9Jx4DIwfJBFzQvVLaAoFajH3a2d9M',
-    appId: '1:41012077226:web:5b32fdc26137e2471f66d3',
-    messagingSenderId: '41012077226',
-    projectId: 'jarnama-7fa58',
-    authDomain: 'jarnama-7fa58.firebaseapp.com',
-    storageBucket: 'jarnama-7fa58.appspot.com',
-    measurementId: 'G-T6RWMBCJ2L',
+    apiKey: 'AIzaSyANhDq_MMOKnbuRZ4C-su9MyFQL0HyEdDM',
+    appId: '1:486751830571:web:18a20a9dcde9fc5398206e',
+    messagingSenderId: '486751830571',
+    projectId: 'jarnama-31deb',
+    authDomain: 'jarnama-31deb.firebaseapp.com',
+    storageBucket: 'jarnama-31deb.appspot.com',
+    measurementId: 'G-ERKZJ3PFBB',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBqgPL2EPQhcaNJpIJ-tNVqBJOQlL3iuZU',
-    appId: '1:41012077226:android:09a623aad521a2301f66d3',
-    messagingSenderId: '41012077226',
-    projectId: 'jarnama-7fa58',
-    storageBucket: 'jarnama-7fa58.appspot.com',
+    apiKey: 'AIzaSyBX8IMsCkdPK_E_xYbDT_1Xk_hAc_2-bzI',
+    appId: '1:486751830571:android:61389bfa004ffc7898206e',
+    messagingSenderId: '486751830571',
+    projectId: 'jarnama-31deb',
+    storageBucket: 'jarnama-31deb.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyByd6qyl-PRZJ99QqP5qP4YLYDgbTI06y0',
-    appId: '1:41012077226:ios:78593ae8343f01781f66d3',
-    messagingSenderId: '41012077226',
-    projectId: 'jarnama-7fa58',
-    storageBucket: 'jarnama-7fa58.appspot.com',
-    iosClientId: '41012077226-dab9v2bcjb38muvj6qdk43s8lul8eobs.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD2huh0fCIMFKo75nSj79-8LEMK3zFNfzs',
+    appId: '1:486751830571:ios:ad9cb1c05e3392ee98206e',
+    messagingSenderId: '486751830571',
+    projectId: 'jarnama-31deb',
+    storageBucket: 'jarnama-31deb.appspot.com',
+    iosClientId: '486751830571-jv7qain7cvhch0ejnuhc534a3j4a26j5.apps.googleusercontent.com',
     iosBundleId: 'com.example.jarnama',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyByd6qyl-PRZJ99QqP5qP4YLYDgbTI06y0',
-    appId: '1:41012077226:ios:78593ae8343f01781f66d3',
-    messagingSenderId: '41012077226',
-    projectId: 'jarnama-7fa58',
-    storageBucket: 'jarnama-7fa58.appspot.com',
-    iosClientId: '41012077226-dab9v2bcjb38muvj6qdk43s8lul8eobs.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD2huh0fCIMFKo75nSj79-8LEMK3zFNfzs',
+    appId: '1:486751830571:ios:ad9cb1c05e3392ee98206e',
+    messagingSenderId: '486751830571',
+    projectId: 'jarnama-31deb',
+    storageBucket: 'jarnama-31deb.appspot.com',
+    iosClientId: '486751830571-jv7qain7cvhch0ejnuhc534a3j4a26j5.apps.googleusercontent.com',
     iosBundleId: 'com.example.jarnama',
   );
 }

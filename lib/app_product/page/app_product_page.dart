@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:jarnama/components/image_container.dart';
+import 'package:jarnama/model/product_model.dart';
+import 'package:jarnama/services/loading.dart';
 
 import '../../components/cusstomTextfield.dart';
 import '../../services/date_time.dart';
-import '../../services/image_picer_service.dart';
+
+import '../../services/store.dart';
+import '../../services/strorage.dart';
 
 // ignore: must_be_immutable
 class AppProductPage extends StatelessWidget {
@@ -80,7 +84,24 @@ class AppProductPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () async {
+              LoadingService().showLoading(context);
+              final urls = await StroageServices().uploadImage(images);
+
+              final product = Product(
+                title: title.text,
+                description: desc.text,
+                dateTime: date.text,
+                phoneNumber: phone.text,
+                userName: userName.text,
+                address: adress.text,
+                images: urls,
+                prices: price.text,
+              );
+              await StoreService().saveProduct(product);
+              // ignore: use_build_context_synchronously
+              Navigator.popUntil(context, (route) => route.isFirst);
+            },
             icon: const Icon(Icons.publish),
             label: const Text('Add to firestore'),
           )
