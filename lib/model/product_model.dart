@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class Product {
@@ -6,51 +5,47 @@ class Product {
     this.images,
     required this.title,
     required this.description,
-    required this.datetime,
+    required this.dateTime,
     required this.phoneNumber,
     required this.userName,
-    required this.adress,
-    this.price,
+    required this.address,
+    this.prices,
   });
+
   final List<String>? images;
   final String title;
   final String description;
-  final String datetime;
+  final String dateTime;
   final String phoneNumber;
   final String userName;
-  final String adress;
-  final String? price;
+  final String address;
+  final String? prices;
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'images': images,
       'title': title,
       'description': description,
-      'datetime': datetime,
+      'dateTime': dateTime,
       'phoneNumber': phoneNumber,
       'userName': userName,
-      'adress': adress,
-      'price': price,
+      'address': address,
+      'prices': prices,
     };
   }
 
-  factory Product.fromMap(Map<String, dynamic> map) {
+  factory Product.fromJson(Map<String, dynamic> map) {
     return Product(
       images: map['images'] != null
-          ? List<String>.from((map['images'] as List<String>))
+          ? List<String>.from((map['images'] as List<dynamic>))
           : null,
       title: map['title'] as String,
       description: map['description'] as String,
-      datetime: map['datetime'] as String,
+      dateTime: map['dateTime'] as String,
       phoneNumber: map['phoneNumber'] as String,
       userName: map['userName'] as String,
-      adress: map['adress'] as String,
-      price: map['price'] != null ? map['price'] as String : null,
+      address: map['address'] as String,
+      prices: map['prices'] != null ? map['prices'] as String : null,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory Product.fromJson(String source) =>
-      Product.fromMap(json.decode(source) as Map<String, dynamic>);
 }
